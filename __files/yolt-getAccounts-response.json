@@ -1,0 +1,38 @@
+[
+[# th:each="element,index : ${utils.list(session.get(clientUserId + '-userSiteCount'))} "]
+[# th:with="userSiteId=(${session.get(clientUserId + '-userSite-' + index.current)})"]
+[# th:if="${session.get(clientUserId + '-userSite-' + index.current)} != null "]
+[# th:with="accountId=(${ session.get(clientUserId + userSiteId + '-account-credit') != null ? session.get(clientUserId + userSiteId + '-account-credit') : utils.uuid() })"]
+[(${session.put(clientUserId + userSiteId + '-account-credit', accountId) != null ? "" : ""})]
+{
+    "id":"[(${accountId})]",
+    "accountHolder":"John Dow - Credit Account",
+    "iteration":"[(${index.current})]",
+    "userSiteId":"[(${userSiteId})]"
+},
+[/]
+[# th:with="accountId=(${ session.get(clientUserId + userSiteId + '-account-current') != null ? session.get(clientUserId + userSiteId + '-account-current') : utils.uuid() })"]
+[(${session.put(clientUserId + userSiteId + '-account-current', accountId) != null ? "" : ""})]
+{
+    "id":"[(${accountId})]",
+    "accountHolder":"John Dow - Current Account",
+    "iteration":"[(${index.current})]",
+    "userSiteId":"[(${userSiteId})]"
+},
+[/]
+[# th:with="accountId=(${ session.get(clientUserId + userSiteId + '-account-saveings') != null ? session.get(clientUserId + userSiteId + '-account-saveings') : utils.uuid() })"]
+[(${session.put(clientUserId + userSiteId + '-account-saveings', accountId) != null ? "" : ""})]
+{
+    "id":"[(${accountId})]",
+    "accountHolder":"John Dow - Saveings Account",
+    "iteration":"[(${index.current})]",
+    "userSiteId":"[(${userSiteId})]"
+}
+[/]
+[/]
+[/]
+[# th:if="${!index.last && (session.get(clientUserId + '-userSite-' + index.current) != null)}"],[/]
+[/]
+]
+
+

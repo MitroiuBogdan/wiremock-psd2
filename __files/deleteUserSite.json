@@ -1,0 +1,5 @@
+
+[# th:each="element,index : ${utils.list(session.get(clientUserId + '-userSiteCount'))} "]
+[(${ session.get(clientUserId + '-userSite-' + index.current) == providerGrantId ? (session.remove(clientUserId + '-userSite-' + index.current) != null ? "" : ""): null })][/]
+
+{}

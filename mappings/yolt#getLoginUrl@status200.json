@@ -1,0 +1,22 @@
+
+{
+    "request": {
+        "method": "POST",
+        "urlPattern": "/v1/users/*.[^/]+/connect\\?site=9CBF3AE4-68C4-11EC-90D6-0242AC120003&redirectUrlId=*.[^/]+"
+    },
+    "response": {
+        "fixedDelayMilliseconds":200,
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json",
+            "Cash-Control": "no-cashe"
+        },
+        "bodyFileName": "yolt-getLoginUrl-response.json",
+        "transformers": [
+            "thymeleaf-body-transformer"
+        ],
+        "transformerParameters": {
+            "urlRegex": "/v1/users/(?<clientUserId>.*?)/connect\\?site=(?<siteId>.*?)&redirectUrlId=(?<redirectUrlId>.*?)"
+        }
+    }
+}

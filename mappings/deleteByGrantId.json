@@ -1,0 +1,18 @@
+{
+    "request": {
+        "method": "DELETE",
+        "urlPattern": "/v1/users/*.[^/]+/user-site/*.[^/]+"
+    },
+    "response": {
+        "status": 204,
+        "headers": {
+            "Content-Type": "application/json",
+            "Cash-Control": "no-cashe"
+        },
+        "bodyFileName": "deleteUserSite.json",
+        "transformers": [ "thymeleaf-body-transformer"],
+        "transformerParameters": {
+            "urlRegex": "/v1/users/(?<clientUserId>.*?)/user-site/(?<providerGrantId>.*?)"
+    }
+}
+}

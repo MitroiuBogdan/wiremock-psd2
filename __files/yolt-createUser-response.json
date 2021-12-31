@@ -1,0 +1,13 @@
+[# th:with="id=(${utils.uuid()})"]
+[# th:with="clientId=(${utils.uuid()})"]
+[# th:with="timestamp=(${#dates.format(#dates.createNow(), 'dd MMM yyyy HH:mm')})"]
+{
+
+    "id":"[(${id})]",
+    "created":"[(${timestamp})]",
+    "clientId":"[(${clientId})]",
+    "date":"[(${date}]"
+
+}
+[/]
+[/]

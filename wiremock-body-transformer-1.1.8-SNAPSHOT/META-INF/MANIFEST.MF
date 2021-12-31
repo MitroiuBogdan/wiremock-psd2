@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Built-By: pf65op
+Class-Path: thymeleaf-3.0.11.RELEASE.jar ognl-3.1.12.jar javassist-3.2
+ 0.0-GA.jar attoparser-2.0.5.RELEASE.jar unbescape-1.1.6.RELEASE.jar t
+ hymeleaf-extras-java8time-3.0.1.RELEASE.jar slf4j-api-1.7.21.jar jose
+ 4j-0.6.5.jar wiremock-2.3.1.jar jetty-server-9.2.13.v20150730.jar jav
+ ax.servlet-api-3.1.0.jar jetty-http-9.2.13.v20150730.jar jetty-io-9.2
+ .13.v20150730.jar jetty-servlet-9.2.13.v20150730.jar jetty-security-9
+ .2.13.v20150730.jar jetty-servlets-9.2.13.v20150730.jar jetty-continu
+ ation-9.2.13.v20150730.jar jetty-util-9.2.13.v20150730.jar jetty-weba
+ pp-9.2.13.v20150730.jar jetty-xml-9.2.13.v20150730.jar guava-18.0.jar
+  jackson-core-2.6.1.jar jackson-annotations-2.6.1.jar httpclient-4.5.
+ 2.jar httpcore-4.4.5.jar commons-codec-1.9.jar xmlunit-core-2.1.1.jar
+  xmlunit-legacy-2.1.1.jar json-path-2.2.0.jar json-smart-2.2.1.jar ac
+ cessors-smart-1.1.jar jopt-simple-4.9.jar zjsonpatch-0.2.1.jar common
+ s-collections4-4.0.jar jackson-dataformat-xml-2.6.1.jar jackson-modul
+ e-jaxb-annotations-2.6.1.jar stax2-api-3.1.4.jar jackson-databind-2.6
+ .1.jar commons-lang3-3.4.jar
+Created-By: Apache Maven 3.6.1
+Build-Jdk: 1.8.0_201
+

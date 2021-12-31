@@ -1,0 +1,26 @@
+{
+    "transactions":[
+        [# th:each="element,index : ${utils.list(session.get(clientUserId + '-userSiteCount'))} "]
+        [# th:with="userSiteId=(${session.get(clientUserId + '-userSite-' + index.current)})"]
+        [# th:if="${session.get(clientUserId + '-userSite-' + index.current)} != null "]
+        [# th:each="element,index : ${utils.list(11)}"]
+        [# th:with="accountId=(${index.current%3==0 ? session.get(clientUserId + userSiteId + '-account-credit') : (index.current%2==0 ? session.get(clientUserId + userSiteId + '-account-current') : session.get(clientUserId + userSiteId + '-account-saveings'))})"]
+        [# th:with="id=(${ session.get(accountId + '-transaction-' + index.current) != null ? session.get(accountId + '-transaction-' + index.current) : utils.uuid() })"]
+        [(${session.put(accountId + '-transaction-' + index.current,id) != null ? "" : ""})]
+            {
+                "id":"[(${id})]",
+                "name":"something",
+                "accountId":"[(${accountId})]",
+                "userSiteId":"[(${userSiteId})]"
+            }
+            [/]
+            [/]
+            [# th:if="!${index.last}"],[/]
+            [/]
+            [/]   
+            [/]
+            [# th:if="${!index.last && (session.get(clientUserId + '-userSite-' + index.current) != null)}"],[/]
+            [/]
+                    ]
+}
+ 

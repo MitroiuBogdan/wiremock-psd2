@@ -1,0 +1,25 @@
+[
+    [# th:each="element,index : ${utils.list(session.get(clientUserId + '-userSiteCount'))} "]
+    [# th:with="userSiteId=(${session.get(clientUserId + '-userSite-' + index.current)})"]
+    [# th:if="${session.get(clientUserId + '-userSite-' + index.current)} != null "]
+    {
+        "connectionStatus": "CONNECTED",
+        "consentValidFrom": "2019-08-24T14:15:22Z",
+        "id": "[(${userSiteId})]",
+        "lastDataFetchFailureReason": "CONSENT_EXPIRED",
+        "lastDataFetchTime": "2019-08-24T14:15:22Z",
+        "metaData": {
+            "property1": "string",
+            "property2": "string"
+        },
+        "site": {
+            "id": "[(${session.get(userSiteId+'-siteId')})]"
+        }
+    }
+
+    [/]
+    [/]
+    [# th:if="${!index.last && (session.get(clientUserId + '-userSite-' + index.current) != null)}"],[/]
+    [/]
+]
+

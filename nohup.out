@@ -1,0 +1,8 @@
+Error: Could not find or load main class com.github.tomakehurst.wiremock.standalone.WireMockServerRunner
+Caused by: java.lang.ClassNotFoundException: com.github.tomakehurst.wiremock.standalone.WireMockServerRunner
+Error: Could not find or load main class com.github.tomakehurst.wiremock.standalone.WireMockServerRunner
+Caused by: java.lang.ClassNotFoundException: com.github.tomakehurst.wiremock.standalone.WireMockServerRunner
+Error: Could not find or load main class com.github.tomakehurst.wiremock.standalone.WireMockServerRunner
+Caused by: java.lang.ClassNotFoundException: com.github.tomakehurst.wiremock.standalone.WireMockServerRunner
+Error: Could not find or load main class com.github.tomakehurst.wiremock.standalone.WireMockServerRunner
+Caused by: java.lang.ClassNotFoundException: com.github.tomakehurst.wiremock.standalone.WireMockServerRunner

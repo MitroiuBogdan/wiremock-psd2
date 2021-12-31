@@ -1,0 +1,21 @@
+{
+    "request": {
+        "method": "PUT",
+        "urlPattern": "/v1/users/*.[^/]+/user-sites/*.[^/]+/refresh"
+    },
+    "response": {
+        "fixedDelayMilliseconds":200,
+        "status": 202,
+        "headers": {
+            "Content-Type": "application/json",
+            "Cash-Control": "no-cashe"
+        },
+        "bodyFileName": "yolt-refreshGrant-response.json",
+        "transformers": [
+            "thymeleaf-body-transformer"
+        ],
+        "transformerParameters": {
+            "urlRegex": "/v1/users/(?<clientUserId>.*?)/user-sites/(?<userSiteId>.*?)/refresh"
+        }
+    }
+}

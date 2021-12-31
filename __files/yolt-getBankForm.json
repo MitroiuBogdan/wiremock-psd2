@@ -1,0 +1,72 @@
+[# th:with="REGION=${('aa10eaf8-69b4-11ec-90d6-0242ac120003')}"]
+[# th:with="IBAN=${('c710dd3e-69b4-11ec-90d6-0242ac120003')}"]
+[# th:with="LANGUAGE=${('6b5e6cf4-69b9-11ec-90d6-0242ac120003')}"]
+[# th:with="IBANLANGUAGE=${('72e1492e-69b9-11ec-90d6-0242ac120003')}"]
+[# th:with="userSiteId=(${utils.uuid()})"]
+[# th:with="stateId=(${utils.uuid()})"]
+[(${session.put('siteId',siteId) != null ? "" : ""})]
+{ 
+    [# th:if="${siteId != REGION && siteId != IBAN && siteId != LANGUAGE && siteId != IBANLANGUAGE }"]
+    "redirect": {
+        "url": "https" //acc-bank.ycs.yolt.com/yoltbank/openbanking/authorize?siteid=[(${'siteId'})]"
+    },
+    "userSiteId": "[(${userSiteId})]"
+    [/]
+
+    [# th:if="${siteId == REGION || siteId == IBAN || siteId == LANGUAGE || siteId == IBANLANGUAGE }"]
+   "form":{
+       "formComponents":[
+        [# th:if="${siteId == IBAN || siteId == IBANLANGUAGE }"]
+        {
+            "type":"TEXT",
+            "id":"iban",
+            "displayName":"IBAN",
+            "fieldType":"SELECT",
+            "componentType":"FIELD"
+        }[/] [# th:if="${siteId == IBANLANGUAGE}"],[/]
+        [# th:if="${siteId == LANGUAGE || siteId == IBANLANGUAGE }"]
+        {
+            "type":"SELECT",
+            "id":"ConsentLanguage",
+            "displayName":"Consent Language",
+            "selectOptionValues":[
+                {
+                    "displayName":"fr",
+                    "value":"FR"
+                },
+                {
+                    "displayName":"nl",
+                    "value":"NL"
+                }
+            ],
+            "fieldType":"SELECT",
+            "componentType":"FIELD"
+        }[/]
+        [# th:if="${siteId == REGION }"]
+        {
+            "type":"SELECT",
+            "id":"region",
+            "displayName":"Please Select Region",
+            "optional": false,
+            "selectOptionValues":[
+                {
+                    "displayName":"Region A",
+                    "value":"Region A"
+                }
+            ],
+            "length":0,
+            "maxLength":0,
+            "fieldType":"SELECT",
+            "componentType":"FIELD"
+        }[/]
+       ],
+       "encryption":{
+           "type":"NONE"
+       },
+       "stateId":"[(${stateId})]"
+   },
+   "userSiteId":"[(${userSiteId})]"
+   [/]
+}
+[(${session.put(clientUserId+'last-siteId',siteId) != null ? "" : ""})]
+[/][/][/][/][/][/]

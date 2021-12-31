@@ -1,0 +1,7 @@
+[# th:with="activityId=(${utils.uuid()})"]
+
+{
+    "activityId":"[(${activityId})]"
+}
+
+[/]

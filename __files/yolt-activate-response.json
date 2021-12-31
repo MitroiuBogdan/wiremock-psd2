@@ -1,0 +1,38 @@
+[# th:with="activityId=(${utils.uuid()})"]
+[# th:with="userSiteId=(${utils.uuid()})"]
+[# th:with="userSiteCount=(${ session.get(clientUserId + '-userSiteCount') != null ? session.get(clientUserId + '-userSiteCount') : 0 })"]
+
+[(${loginType != 'FORM' ? session.put(clientUserId + '-userSite-' + userSiteCount, userSiteId) : "" })]
+[(${loginType != 'FORM' ? (session.put(clientUserId + '-userSiteCount',userSiteCount + 1) != null ? "" : "") : (session.put(clientUserId + '-userSiteCount',userSiteCount) != null ? "" : "")})]
+[(${loginType != 'FORM' ? (session.put(userSiteId+'-siteId',session.get(clientUserId+'last-siteId')) != null ? "" : "") : "" })]
+
+{
+
+    [# th:if="${loginType =='FORM'}"]
+    "step":{
+        "redirect":{
+            "url":"https-bank.ycs.yolt.com/yoltbank/openbanking/authorize?siteid=[(${'siteId'})]"
+        }
+    },
+    [/]
+    "activityId": "[(${activityId})]",
+    "userSiteId": "[(${userSiteId})]",
+    "userSite": {
+        "id": "[(${userSiteId})]",
+        "connectionStatus": "[(${loginType =='FORM' ? "STEP_NEEDED" : "CONNECTED"})]",
+        "site": {
+            "id": "[(${session.get(clientUserId+'last-siteId')})]",
+            "supportedAccountTypes": [
+                "CURRENT_ACCOUNT",
+                "CREDIT_CARD",
+                "SAVEINGS_ACCOUNT",
+                "PENSION",
+                "INVESTMENT"
+            ]
+        }
+    },
+    "numberOfGrants":"[(${session.get(clientUserId + '-userSiteCount')})]"
+}
+[/]
+[/]
+[/]

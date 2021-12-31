@@ -1,0 +1,21 @@
+{
+    "request": {
+        "method": "GET",
+        "urlPattern": "/v1/users/*.[^/]+/user-sites"
+    },
+    "response": {
+        "fixedDelayMilliseconds":200,
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json",
+            "Cash-Control": "no-cashe"
+        },
+        "bodyFileName": "yolt-getGrants-response.json",
+        "transformers": [
+            "thymeleaf-body-transformer"
+        ],
+        "transformerParameters": {
+            "urlRegex": "/v1/users/(?<clientUserId>.*?)/user-sites"
+        }
+    }
+}

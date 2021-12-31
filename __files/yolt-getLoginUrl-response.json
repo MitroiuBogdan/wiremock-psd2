@@ -1,0 +1,12 @@
+
+[# th:with="userSiteId=(${utils.uuid()})"]
+
+{ 
+    "redirect": {
+        "url": "https" //acc-bank.ycs.yolt.com/yoltbank/openbanking/authorize?siteid=[(${'siteId'})]"
+    },
+    "userSiteId": "[(${userSiteId})]"
+}
+
+[/]
+[(${session.put('siteId',siteId) != null ? "" : ""})]
