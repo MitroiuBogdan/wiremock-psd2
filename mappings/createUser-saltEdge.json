@@ -1,0 +1,21 @@
+{
+    "request": {
+        "method": "POST",
+        "urlPattern": "/api/v5/customers"
+    },
+    "response": {
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json",
+            "Cash-Control": "no-cashe"
+        },
+        "bodyFileName": "createUser-saltEdge.json",
+        "transformers": [
+            "thymeleaf-body-transformer",
+            "body-transformer"
+        ],
+        "transformerParameters": {
+            "urlRegex": "/api/v5/customers"
+        }
+    }
+}

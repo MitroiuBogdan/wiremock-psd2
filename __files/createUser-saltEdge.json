@@ -1,0 +1,12 @@
+[# th:with="id=(${utils.uuid()})"]
+{
+    "data": {
+        "id": "[(${id})]",
+        "identifier": "$(data.identifier)",
+        "created_at": "2022-09-06T15:46:54Z",
+        "updated_at": "2022-09-06T15:46:54Z",
+        "secret": "nDF8a9MQDK0f-5WwvsTsx4T0fn14ueTM1Vn6jly13x4",
+        "health_status": null
+    }
+}
+[/]

@@ -1,0 +1,20 @@
+{
+    "request": {
+        "method": "GET",
+        "urlPattern": "/api/v5/providers"
+    },
+    "response": {
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json",
+            "Cash-Control": "no-cashe"
+        },
+        "bodyFileName": "getProviders-saltEdge.json",
+        "transformers": [
+            "body-transformer"
+        ],
+        "transformerParameters": {
+            "urlRegex": "/api/v5/providers"
+        }
+    }
+}
